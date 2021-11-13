@@ -1,13 +1,17 @@
-function onDrag({movementX, movementY}) {
+function onDrag(e) {
+    const willDragged = document.querySelector('.to-be-dragged');    
     const appliedStyles = window.getComputedStyle(willDragged);
     const left = parseInt(appliedStyles.left);
     const top = parseInt(appliedStyles.top);
     
-    willDragged.style.left = `${left + movementX}px`;
-    willDragged.style.top = `${top + movementY}px`;
-    console.log(movementX, movementY);
+    willDragged.style.left = `${e.clientX}`;
+    willDragged.style.top = `${e.clientY}`;
 }
 
-const willDragged = document.querySelector('.to-be-dragged');
+function handleDragEvent() {
+    const willDragged = document.querySelector('.to-be-dragged');
 
-willDragged.addEventListener("drag", onDrag);
+    willDragged.addEventListener("drag", onDrag);
+}
+
+handleDragEvent();
