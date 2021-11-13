@@ -5,14 +5,9 @@ function onDrag({movementX, movementY}) {
     
     willDragged.style.left = `${left + movementX}px`;
     willDragged.style.top = `${top + movementY}px`;
+    console.log(movementX, movementY);
 }
 
 const willDragged = document.querySelector('.to-be-dragged');
 
-willDragged.addEventListener("drag", () => {
-    willDragged.addEventListener("mousemove", onDrag);
-});
-
-// willDragged.addEventListener("mouseup", () => {
-//     willDragged.removeEventListener("mousemove", onDrag);
-// });
+willDragged.addEventListener("drag", onDrag);
