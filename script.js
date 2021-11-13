@@ -6,6 +6,7 @@ function onDrag(e) {
     
     willDragged.style.left = `${e.clientX}`;
     willDragged.style.top = `${e.clientY}`;
+    console.log(e.clientX, e.clientY);
 }
 
 function handleDragEvent() {
