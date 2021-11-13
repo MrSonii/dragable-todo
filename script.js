@@ -4,7 +4,6 @@ function onDrag(e) {
     willDragged.style.left = `${e.clientX}`;
     willDragged.style.top = `${e.clientY}`;
 
-    e.preventDe
     console.log(e.clientX, e.clientY);
 }
 
