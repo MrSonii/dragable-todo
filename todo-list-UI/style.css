@@ -47,9 +47,14 @@ body {
     background: #2c2c2c;
 }
 
+.absolute-hidden {
+    position: absolute;
+    visibility: hidden;
+}
+
 .list-item-style {
     width: 90%;
-    margin: 10% 0;
+    margin: 5px auto;
     background: #3e4447;
     border: 5px solid #3e4447;
 }
