@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ubuntu;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    background: black;  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sortList {
+    width: 50%;
+    height: 60%;
+    background: #222222;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.padd-10 {
+    padding:5px 10px;
+}
+
+.bg-orange {
+    background: #f39c12;
+}
+
+.bg-sky {
+    background: #3498db;
+}
+
+.bg-green {
+    background: #008000;
+}
+
+.list-tile {
+    width: 30%;
+    min-height: 100px;
+    margin-top: 10px;
+    background: #2c2c2c;
+}
+
+.list-item-style {
+    width: 90%;
+    margin: 10% 0;
+    background: #3e4447;
+    border: 5px solid #3e4447;
+}
+
+.input-style {
+    outline: 0;
+    border: 0;
+    background: #2c2c2c;
+    font-size: 1.3rem;
+    padding: 7px;
+}
+
+.button-style {
+    background: cornflowerblue;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
