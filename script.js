@@ -8,9 +8,11 @@ function onDrag(e) {
 function handleDragEvent() {
     const willDragged = document.querySelector('.to-be-dragged');
 
-    willDragged.addEventListener("drag", onDrag);
-    willDragged.addEventListener("dragover", function (e) {
-        e.preventDefault();
+    willDragged.addEventListener("mousedown", () => {
+        willDragged.addEventListener("mousemove", onDrag)
+    });
+    willDragged.addEventListener("mouseup", () => {
+        willDragged.removeEventListener("mousemove", onDrag)
     });
 }
 
