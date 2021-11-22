@@ -41,8 +41,8 @@ body {
     background: #008000;
 }
 
-.hide {
-    display: none;
+.border {
+    border: 2px dashed white;
 }
 
 .list-tile {

@@ -45,6 +45,14 @@ function handleDragEvent() {
             e.preventDefault();
         });
 
+        taskSlot.addEventListener("dragenter", (e) => {
+            e.target.classList.add("border");
+        });
+
+        taskSlot.addEventListener("dragleave", (e) => {
+            e.target.classList.remove("border");
+        });
+
         taskSlot.addEventListener("drop", (e) => {
             e.target.appendChild(dragItem);
             dragItem = null;
