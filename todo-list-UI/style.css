@@ -10,13 +10,14 @@ body {
     height: 100vh;
     background: black;  
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
 }
 
 .sortList {
-    width: 50%;
-    height: 60%;
+    width: 90%;
+    height: 80%;
     background: #222222;
     font-size: 1rem;
     display: flex;
@@ -40,9 +41,15 @@ body {
     background: #008000;
 }
 
+.hide {
+    display: none;
+}
+
 .list-tile {
     width: 30%;
     min-height: 100px;
+    max-height: 96%;
+    overflow: auto;
     margin-top: 10px;
     background: #2c2c2c;
 }
@@ -54,7 +61,7 @@ body {
 
 .list-item-style {
     width: 90%;
-    margin: 5px auto;
+    margin: 10px;
     background: #3e4447;
     border: 5px solid #3e4447;
 }
