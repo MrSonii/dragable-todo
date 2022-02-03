@@ -95,10 +95,21 @@ body {
   font-size: 1.3rem;
 }
 
+.count-dltAllTask-window {
+  flex: 0 0 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .count {
-  flex: 0 0 100%;
   color: grey;
-  text-align: center;
+}
+
+.dlt-task-button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px;
+  background: cornflowerblue;
 }
 /* 
 .scroll {

@@ -90,6 +90,7 @@ function createNewTask() {
 
   updateTaskCount();
   loadOldTasks();
+  deleteAllTAsk();
 
   function handleAppendTask() {
     const clonedNode = document
@@ -112,6 +113,35 @@ function createNewTask() {
   buttonElem.addEventListener("click", handleAppendTask);
 
   handleDragEvent();
+}
+
+function deleteAllTAsk() {
+  const dltButton = document.querySelector(".dlt-task-button");
+  const todo = document.querySelector(".todo");
+  const inProgress = document.querySelector(".in-progress");
+  const done = document.querySelector(".done");
+
+  function handleDeletionFromTaskSlots(taskSlot) {
+    const tasks = taskSlot.querySelectorAll(".list-item-style");
+
+    for (const task of tasks) {
+      task.remove();
+    }
+  }
+  dltButton.addEventListener("click", () => {
+    
+    handleDeletionFromTaskSlots(todo);
+    handleDeletionFromTaskSlots(inProgress);
+    handleDeletionFromTaskSlots(done);
+
+    setValueToLocalStorage("Todo", []);
+    setValueToLocalStorage("In-Progress", []);
+    setValueToLocalStorage("Done", []);
+    setValueToLocalStorage("idCount", 0);
+    setValueToLocalStorage("count", 0);
+    
+    updateTaskCount();
+  });
 }
 
 function dltTaskFromLS(e, task, dltIconGrandParent) {
@@ -147,7 +177,7 @@ function deleteTask(task) {
 }
 
 function handleDragEvent() {
-  let task, deletedValue;
+  let task, deletedValue, modifiedSlot;
   const taskSlots = document.querySelectorAll(".list-tile");
 
   for (const taskSlot of taskSlots) {
@@ -157,7 +187,8 @@ function handleDragEvent() {
       if (target && target.className.includes("list-item-style")) {
         task = target;
       }
-
+      
+      // modifiedSlot = taskSlot.querySelector("h2").innerHTML;
       deletedValue = deleteDraggedTaskFromLS(taskSlot, event, deletedValue);
     });
 
@@ -174,10 +205,18 @@ function handleDragEvent() {
     });
 
     taskSlot.addEventListener("drop", (e) => {
+      
       taskSlot.classList.remove("border");
       taskSlot.appendChild(task);
 
-      updateDroppedTaskToLS(e, deletedValue);
+      // if (!e.currentTarget.className.includes("todo") && !e.currentTarget.className.includes("in-progress") && !e.currentTarget.className.includes("done")) {
+      //   const keyToBeUpdated = getValueFromLocalStorage(modifiedSlot);
+        
+      //   keyToBeUpdated.push(deletedValue);
+      //   setValueToLocalStorage(modifiedSlot, keyToBeUpdated);        
+      // } else {
+        updateDroppedTaskToLS(e, deletedValue);        
+      // }
     });
   }
 }
