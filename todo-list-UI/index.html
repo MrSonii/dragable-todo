@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task-List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="list-item-style absolute-hidden" draggable="true"><p></p></div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="list-item-style hidden" draggable="true">
+      <p></p>
+      <span class="times">&times;</span>
+    </div>
 
     <div>
-        <input class="input-style" type="text" placeholder="Task-Details">
-        <button class="button-style">Create New Task</button>
+      <input class="input-style" type="text" placeholder="Task-Details" />
+      <button class="button-style">Create New Task</button>
     </div>
-    
+
+    <p class="count">(0 tasks)</p>
+
     <div class="sortList">
-        <div class="todo-list list-tile"><h2 class="padd-10 bg-sky">Todo</h2></div>
-        <div class="in-progress-list list-tile"><h2 class="padd-10 bg-orange">In-Progress</h2></div>
-        <div class="done-list list-tile"><h2 class="padd-10 bg-green">Done</h2></div>
+      <div class="todo list-tile">
+        <h2 class="padd-10 bg-sky">Todo</h2>
+      </div>
+      <div class="in-progress list-tile">
+        <h2 class="padd-10 bg-orange">In-Progress</h2>
+      </div>
+      <div class="done list-tile">
+        <h2 class="padd-10 bg-green">Done</h2>
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>
