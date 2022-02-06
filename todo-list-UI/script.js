@@ -217,6 +217,7 @@ function handleDragEvent() {
 }
 
 function deleteDraggedTaskFromLS(taskSlot, event) {
+  let deletedValue;
   const keyName = taskSlot.querySelector("h2").innerHTML;
   const taskContent = event.target.querySelector("p").innerHTML;
   const idAttrVal = parseInt(event.target.dataset.id);
@@ -224,7 +225,7 @@ function deleteDraggedTaskFromLS(taskSlot, event) {
 
   for (const obj of keyNameValueInLS) {
     if (obj.content === taskContent && obj.id === idAttrVal) {
-      const deletedValue = keyNameValueInLS[keyNameValueInLS.indexOf(obj)];
+      deletedValue = keyNameValueInLS[keyNameValueInLS.indexOf(obj)];
       keyNameValueInLS = keyNameValueInLS.filter((item) => {
         return item !== deletedValue;
       });
