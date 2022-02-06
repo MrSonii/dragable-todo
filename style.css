@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: ubuntu;
+}
+
+body {
+    height: 100vh;
+    background: black;
+}
+
+.to-be-dragged {
+    width: 200px;
+    height: 200px;
+    color: black;
+    background: white;
+    border: 5px solid darkgrey;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+}
