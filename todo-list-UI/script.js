@@ -177,7 +177,7 @@ function deleteTask(task) {
 }
 
 function handleDragEvent() {
-  let task, deletedValue, modifiedSlot;
+  let task, modifiedSlot, evt;
   const taskSlots = document.querySelectorAll(".list-tile");
 
   for (const taskSlot of taskSlots) {
@@ -187,41 +187,36 @@ function handleDragEvent() {
       if (target && target.className.includes("list-item-style")) {
         task = target;
       }
-      
-      // modifiedSlot = taskSlot.querySelector("h2").innerHTML;
-      deletedValue = deleteDraggedTaskFromLS(taskSlot, event, deletedValue);
-    });
 
+      evt = event;
+      modifiedSlot = taskSlot;
+    });
+    
     taskSlot.addEventListener("dragover", (e) => {
       e.preventDefault();
     });
-
+    
     taskSlot.addEventListener("dragenter", () => {
       taskSlot.classList.add("border");
     });
-
+    
     taskSlot.addEventListener("dragleave", () => {
       taskSlot.classList.remove("border");
     });
-
+    
     taskSlot.addEventListener("drop", (e) => {
       
       taskSlot.classList.remove("border");
       taskSlot.appendChild(task);
-
-      // if (!e.currentTarget.className.includes("todo") && !e.currentTarget.className.includes("in-progress") && !e.currentTarget.className.includes("done")) {
-      //   const keyToBeUpdated = getValueFromLocalStorage(modifiedSlot);
-        
-      //   keyToBeUpdated.push(deletedValue);
-      //   setValueToLocalStorage(modifiedSlot, keyToBeUpdated);        
-      // } else {
-        updateDroppedTaskToLS(e, deletedValue);        
-      // }
+          
+      const deletedValue = deleteDraggedTaskFromLS(modifiedSlot, evt);
+      
+      updateDroppedTaskToLS(e, deletedValue);        
     });
   }
 }
 
-function deleteDraggedTaskFromLS(taskSlot, event, deletedValue) {
+function deleteDraggedTaskFromLS(taskSlot, event) {
   const keyName = taskSlot.querySelector("h2").innerHTML;
   const taskContent = event.target.querySelector("p").innerHTML;
   const idAttrVal = parseInt(event.target.dataset.id);
@@ -229,7 +224,7 @@ function deleteDraggedTaskFromLS(taskSlot, event, deletedValue) {
 
   for (const obj of keyNameValueInLS) {
     if (obj.content === taskContent && obj.id === idAttrVal) {
-      deletedValue = keyNameValueInLS[keyNameValueInLS.indexOf(obj)];
+      const deletedValue = keyNameValueInLS[keyNameValueInLS.indexOf(obj)];
       keyNameValueInLS = keyNameValueInLS.filter((item) => {
         return item !== deletedValue;
       });
